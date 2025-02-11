@@ -1,0 +1,22 @@
+name: Run Task Every 2 Minutes
+
+on:
+  schedule:
+    - cron: '*/2 * * * *'  # This cron expression runs every 2 minutes
+
+jobs:
+  run-task:
+    runs-on: windows-latest  # You can choose other OS types (windows-latest, macos-latest)
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
+      - name: Set up .NET (if your task is a .NET task)
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '9.0'  # Specify the .NET version needed for your task
+
+      - name: Run .NET task
+        run: dotnet AccuScraperConsole.dll  # Replace with the command to run your .NET task
+        
