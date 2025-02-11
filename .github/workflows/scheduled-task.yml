@@ -1,6 +1,7 @@
 name: Run Task Every 2 Minutes
 
 on:
+  workflow_dispatch:  # Allows manual trigger
   schedule:
     - cron: '*/2 * * * *'  # This cron expression runs every 2 minutes
 
