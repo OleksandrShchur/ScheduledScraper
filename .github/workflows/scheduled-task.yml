@@ -3,8 +3,8 @@ name: Run Task Every 2 Minutes
 on:
   workflow_dispatch:  # Allows manual trigger
   schedule:
-    - cron: '* 18-23 * * 1-5'  # Every minute from 18:00 to 23:59 on Mon-Fri
-    - cron: '* 0-2 * * 2-6'    # Every minute from 00:00 to 02:59 on Tue-Sat
+    - cron: '* 16-23 * * 1-5'  # 18:00-23:59 Kyiv → 16:00-23:59 UTC
+    - cron: '* 0-1 * * 2-6'    # 00:00-03:00 Kyiv → 22:00-01:59 UTC
 
 jobs:
   run-task:
