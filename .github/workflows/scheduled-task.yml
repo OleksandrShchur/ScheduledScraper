@@ -19,5 +19,5 @@ jobs:
           dotnet-version: '9.0'  # Specify the .NET version needed for your task
 
       - name: Run .NET task
-        run: dotnet AccuScraperConsole.dll  # Replace with the command to run your .NET task
+        run: AccuScraperConsole.exe  # Replace with the command to run your .NET task
         
