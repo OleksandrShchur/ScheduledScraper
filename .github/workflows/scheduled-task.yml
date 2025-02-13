@@ -1,14 +1,14 @@
-name: Run Task Every 15 Minutes
+name: Run Task Every 30 Minutes
 
 on:
   workflow_dispatch:  # Allows manual trigger
   schedule:
-    - cron: '*/15 15-23 * * 1-5'  # Every 15 mins from 15:00-23:59 UTC (17:00-23:59 Kyiv)
-    - cron: '*/15 0-1 * * 2-6'
+    - cron: '*/30 10-23 * * 1-5'  # Every 30 mins from 15:00-23:59 UTC (17:00-23:59 Kyiv)
+    - cron: '*/30 0-1 * * 2-6'
 
 concurrency:
   group: run-task-group
-  cancel-in-progress: false  # Set to 'true' if you want to cancel the previous run before starting a new one
+  cancel-in-progress: true  # Set to 'true' if you want to cancel the previous run before starting a new one
 
 jobs:
   run-task:
