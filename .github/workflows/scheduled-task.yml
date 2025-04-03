@@ -12,26 +12,40 @@ concurrency:
 
 jobs:
   run-task:
-    runs-on: windows-latest  # You can choose other OS types (windows-latest, macos-latest)
+    runs-on: windows-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
         
-      - name: Set up .NET (if your task is a .NET task)
+      - name: Set up .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '9.0'  # Specify the .NET version needed for your task
+          dotnet-version: '9.0'
 
-      - name: Run .NET task
-        run: ./AccuScraperConsole.exe  # Replace with the command to run your .NET task
-        continue-on-error: true
+      - name: Run .NET task with retries
+        shell: pwsh
+        run: |
+          $maxAttempts = 3
+          $attempt = 0
+          
+          while ($attempt -lt $maxAttempts) {
+            $attempt++
+            Write-Host "Attempt $attempt running..."
+            
+            ./AccuScraperConsole.exe
+            $exitCode = $LASTEXITCODE  # Capture the exit code
 
-      - name: Run .NET task (Attempt 2, if needed)
-        if: failure()
-        run: ./AccuScraperConsole.exe
+            if ($exitCode -eq 0) {
+              Write-Host "Task succeeded!"
+              exit 0  # Stop further execution
+            } else {
+              Write-Host "Attempt $attempt failed with exit code $exitCode."
+              if ($attempt -lt $maxAttempts) {
+                Start-Sleep -Seconds 5
+              }
+            }
+          }
 
-      - name: Run .NET task (Final Attempt)
-        if: failure()
-        run: ./AccuScraperConsole.exe
-
+          Write-Error "All attempts failed."
+          exit 1  # Mark the workflow as failed if all attempts fail
