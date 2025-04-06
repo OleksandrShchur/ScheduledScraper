@@ -9,7 +9,6 @@
       "AccuScraperConsole/1.0.0": {
         "dependencies": {
           "HtmlAgilityPack": "1.11.72",
-          "Polly": "8.5.2",
           "PuppeteerSharp": "20.0.5"
         },
         "runtime": {
@@ -87,25 +86,6 @@
           }
         }
       },
-      "Polly/8.5.2": {
-        "dependencies": {
-          "Polly.Core": "8.5.2"
-        },
-        "runtime": {
-          "lib/net6.0/Polly.dll": {
-            "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.5.2.4319"
-          }
-        }
-      },
-      "Polly.Core/8.5.2": {
-        "runtime": {
-          "lib/net8.0/Polly.Core.dll": {
-            "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.5.2.4319"
-          }
-        }
-      },
       "PuppeteerSharp/20.0.5": {
         "dependencies": {
           "Microsoft.Extensions.Logging": "8.0.0"
@@ -173,20 +153,6 @@
       "sha512": "sha512-bXJEZrW9ny8vjMF1JV253WeLhpEVzFo1lyaZu1vQ4ZxWUlVvknZ/+ftFgVheLubb4eZPSwwxBeqS1JkCOjxd8g==",
       "path": "microsoft.extensions.primitives/8.0.0",
       "hashPath": "microsoft.extensions.primitives.8.0.0.nupkg.sha512"
-    },
-    "Polly/8.5.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-vbXsGgkG86nG+TOwY+SmtrGrRHmHH0DQaxtILx//d3Dz/ocJ8izSNYzdvU2gEtWa/LDD8zJLvD3HdjEkdlvkhg==",
-      "path": "polly/8.5.2",
-      "hashPath": "polly.8.5.2.nupkg.sha512"
-    },
-    "Polly.Core/8.5.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-1MJKdxv4zwDmiWvYvVN24DsrWUfgQ4F83voH8bhbtLMdPuGy8CfTUzsgQhvyrl1a7hrM6f/ydwLVdVUI0xooUw==",
-      "path": "polly.core/8.5.2",
-      "hashPath": "polly.core.8.5.2.nupkg.sha512"
     },
     "PuppeteerSharp/20.0.5": {
       "type": "package",
