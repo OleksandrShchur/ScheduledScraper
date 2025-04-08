@@ -2,8 +2,10 @@ name: Run Task Every 30 Minutes
 
 on:
   workflow_dispatch:  # Allows manual trigger
+  repository_dispatch:  # ✅ Enables external API triggering
+    types: [manual-retry]  # ✅ Match C# event_type
   schedule:
-    - cron: '*/30 14-23 * * 1-5'  # Every 30 mins from 15:00-23:59 UTC (17:00-23:59 Kyiv)
+    - cron: '*/30 14-23 * * 1-5'
     - cron: '*/30 0-1 * * 2-6'
 
 concurrency:
@@ -26,7 +28,7 @@ jobs:
       - name: Run .NET task with retries
         shell: pwsh
         run: |
-          $maxAttempts = 3
+          $maxAttempts = 1
           $attempt = 0
           
           while ($attempt -lt $maxAttempts) {
