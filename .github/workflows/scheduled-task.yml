@@ -2,8 +2,8 @@ name: Run Task Every 30 Minutes
 
 on:
   workflow_dispatch:  # Allows manual trigger
-  repository_dispatch:  # ✅ Enables external API triggering
-    types: [manual-retry]  # ✅ Match C# event_type
+  repository_dispatch:  # Enables external API triggering
+    types: [manual-retry]  # Match C# event_type
   schedule:
     - cron: '*/30 14-23 * * 1-5'
     - cron: '*/30 0-1 * * 2-6'
